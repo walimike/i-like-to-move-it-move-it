@@ -318,7 +318,7 @@ Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 0.4ms)
 
 Started POST "/instruments" for 127.0.0.1 at 2019-12-02 20:40:00 +0300
 Processing by InstrumentsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zqXfKANXQVHJjRg44izak2V6r8Q3AoLmz1boFneqXEQbI+jpNTclgEwgwE8pfelQlsJjFkxm0RCSPMTMkZDmRg==", "instrument"=>{"title"=>"Books", "price"=>"20", "model"=>"book club", "description"=>"For sale", "brand"=>"Fender", "finish"=>"White", "condition"=>"Excellent", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f553a7dcee0 @tempfile=#<Tempfile:/tmp/RackMultipart20191202-14892-d0lqz1.jpg>, @original_filename="profile.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"profile.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Instrument"}
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zqXfKANXQVHJjRg44izak2V6r8Q3AoLmz1boFneqXEQbI+jpNTclgEwgwE8pfelQlsJjFkxm0RCSPMTMkZDmRg==", "instrument"=>{"title"=>"Books", "price"=>"20", "model"=>"book club", "description"=>"For sale", "brand"=>"Fender", "finish"=>"White", "condition"=>"Excellent", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f553a7dcee0 @tempfile=#<Tempfile:/tmp/RackMultipart20191202-14892-d0lqz1.jpg>, @original_filename="profile.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"profile.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Product"}
   [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
@@ -1554,5 +1554,1196 @@ Processing by InstrumentsController#index as HTML
   Rendered instruments/index.html.erb within layouts/application (15.9ms)
   [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
 Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 11:55:35 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (76.4ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 200 OK in 387ms (Views: 349.4ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/instruments/2" for 127.0.0.1 at 2019-12-05 11:58:18 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (4.0ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/line_items?instrument_id=2" for 127.0.0.1 at 2019-12-05 11:58:20 +0300
+Processing by LineItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"U5SORyHl3taRAYZGW6PgY0RC85JyKRYNRDTvwQpzklo0Q5f/iQMOIDE/8SGeQCKx6gM6CPkNdx469hz03UOWfA==", "instrument_id"=>"2"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."instrument_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["instrument_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "line_items" ("instrument_id", "cart_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["instrument_id", 2], ["cart_id", 1], ["created_at", "2019-12-05 08:58:20.805843"], ["updated_at", "2019-12-05 08:58:20.805843"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 24ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2019-12-05 11:58:20 +0300
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (2.3ms)
+  Rendered carts/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/instruments" for 127.0.0.1 at 2019-12-05 11:58:24 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (17.2ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 200 OK in 50ms (Views: 46.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/instruments/1" for 127.0.0.1 at 2019-12-05 11:58:25 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInstrument Load (2.0ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (4.5ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 200 OK in 50ms (Views: 43.5ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/line_items?instrument_id=1" for 127.0.0.1 at 2019-12-05 11:58:26 +0300
+Processing by LineItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"D3P6gBypIyrs8raVOOnpOXo4v3F1JXwEIBmwPjxUQJBopOM4tE/z3EzMwfL9Civr1Hl26/4BHRde20ML62REtg==", "instrument_id"=>"1"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."instrument_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["instrument_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "line_items" ("instrument_id", "cart_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["instrument_id", 1], ["cart_id", 1], ["created_at", "2019-12-05 08:58:26.792129"], ["updated_at", "2019-12-05 08:58:26.792129"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 13ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2019-12-05 11:58:26 +0300
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [2 times] (4.8ms)
+  Rendered carts/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 54ms (Views: 28.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-12-05 12:11:46 +0300
+Processing by RegistrationsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (38.5ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 200 OK in 63ms (Views: 60.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-12-05 12:12:14 +0300
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kRiJRNdGnjTxbEdu/NDJVdoz9Kf+36cGNlkHwTiM1KUseC1YAL9wCn1lI40oFlnd46UqK/OYmPr/zf0YdoqRmQ==", "user"=>{"name"=>"robert", "email"=>"walimike139@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "walimike139@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "walimike139@gmail.com"], ["encrypted_password", "$2a$11$0aBk/0cM.y1vDHaK8pi7ouOIGtiKkSHPs3Ch65UHizFYgrOhr/XPq"], ["created_at", "2019-12-05 09:12:14.215660"], ["updated_at", "2019-12-05 09:12:14.215660"], ["name", "robert"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2019-12-05 09:12:14.219304"], ["last_sign_in_at", "2019-12-05 09:12:14.219304"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2019-12-05 09:12:14.220217"], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 164ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:12:14 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (13.2ms)
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-12-05 12:12:34 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RAxiPbWdZvvKN8/Hvgu2IuB2s8L1a02ox+AhSrRuXDlf4trdoEX3tMArXOzx8OY0qyVy60ZEArY4G1mYpkNe2A=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:12:34 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-12-05 09:12:34.372893"], ["updated_at", "2019-12-05 09:12:34.372893"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (8.0ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 33ms (Views: 25.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-05 12:12:38 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.3ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 48ms (Views: 44.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2019-12-05 12:12:42 +0300
+Processing by Devise::PasswordsController#new as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (5.7ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 57ms (Views: 54.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2019-12-05 12:12:48 +0300
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SWyBrKXjXPEwzt0NfpP2SoDzHxONoxV7BMRnpSupqCvTUSBHvLGKj/piVAyBy8xcjAoEZTcfpfzoPtmA6fE0Wg==", "user"=>{"email"=>"walimike139@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "walimike139@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "2f561c057f2f81240b3942010ff79315e502b55abcfbf4ec6c642808f3e77e5a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "2f561c057f2f81240b3942010ff79315e502b55abcfbf4ec6c642808f3e77e5a"], ["reset_password_sent_at", "2019-12-05 09:12:48.466166"], ["updated_at", "2019-12-05 09:12:48.466899"], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (0.8ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 186.7ms
+Sent mail to walimike139@gmail.com (6.8ms)
+Date: Thu, 05 Dec 2019 12:12:48 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: walimike139@gmail.com
+Message-ID: <5de8ca10c6379_28a12ae713332b181458@walimike-ThinkPad-X1-Carbon-2nd.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello walimike139@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=vZ-evkh3PUx_isy7gnz3">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 478ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-05 12:12:48 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-12-05 12:14:18 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L1m5n0Dax4Xo1YmrsL8BseaR6ohrwiGt5vJDtggMBT6dg2o268GTmFRSwedCJ+Jm2gjZCiG1RXdLsJFAshUeRw==", "user"=>{"email"=>"walimike139@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "walimike139@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2019-12-05 09:14:18.455390"], ["sign_in_count", 2], ["updated_at", "2019-12-05 09:14:18.456621"], ["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 153ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:14:18 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (27.4ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 78ms (Views: 74.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:14:29 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (25.1ms)
+  Rendered instruments/new.html.erb within layouts/application (26.8ms)
+Completed 401 Unauthorized in 35ms (ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `model' for #<Instrument:0x00007f9d5dfb6b78>:
+  app/views/instruments/_form.html.erb:25:in `block in _app_views_instruments__form_html_erb___2609692564247124655_70156931719540'
+  app/views/instruments/_form.html.erb:4:in `_app_views_instruments__form_html_erb___2609692564247124655_70156931719540'
+  app/views/instruments/new.html.erb:14:in `_app_views_instruments_new_html_erb___1367959008580510549_70156931655700'
+
+Started POST "/__better_errors/ef6507ff1804adbb/variables" for 127.0.0.1 at 2019-12-05 12:14:29 +0300
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:18:25 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.7ms)
+  Rendered instruments/new.html.erb within layouts/application (12.5ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:19:42 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (7.9ms)
+  Rendered instruments/new.html.erb within layouts/application (8.7ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 36ms (Views: 31.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/instruments" for 127.0.0.1 at 2019-12-05 12:21:08 +0300
+Processing by InstrumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"87xq1TO77jkJTyjdcBuOsFuUYGilDh1ijVgG6USIbGqXR88bEgxv+//3fEfV9rYI6jHI7A+K79iwc9nsuA8T8g==", "instrument"=>{"title"=>"", "price"=>"", "description"=>"", "condition"=>""}, "commit"=>"Create Product"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (9.2ms)
+  Rendered instruments/new.html.erb within layouts/application (10.6ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 44ms (Views: 34.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/instruments" for 127.0.0.1 at 2019-12-05 12:22:23 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (12.6ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 40ms (Views: 34.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:22:28 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.2ms)
+  Rendered instruments/new.html.erb within layouts/application (12.2ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 46ms (Views: 40.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:22:32 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (9.2ms)
+  Rendered instruments/new.html.erb within layouts/application (10.5ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 53ms (Views: 32.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/instruments" for 127.0.0.1 at 2019-12-05 12:25:36 +0300
+Processing by InstrumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pIsR0v7eVZLs4hONQgZNvedGxnVkR6pkm81Gk8VwBSHAcLQc32nUUBpaRxfn63UFVuNu8c7DWN6m5pmWOfd6uQ==", "instrument"=>{"title"=>"Books", "price"=>"245", "description"=>"A collection of things", "condition"=>"New", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9d5da05f80 @tempfile=#<Tempfile:/tmp/RackMultipart20191205-10401-rwnobh.jpg>, @original_filename="profile.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"profile.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Product"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "instruments" ("description", "condition", "title", "price", "created_at", "updated_at", "image", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["description", "A collection of things"], ["condition", "New"], ["title", "Books"], ["price", "245.0"], ["created_at", "2019-12-05 09:25:36.292229"], ["updated_at", "2019-12-05 09:25:36.292229"], ["image", "\"profile.jpg\""], ["user_id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments/6
+Completed 302 Found in 163ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/instruments/6" for 127.0.0.1 at 2019-12-05 12:25:36 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.1ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (8.5ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:25:44 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (18.3ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/instruments/6/edit" for 127.0.0.1 at 2019-12-05 12:26:03 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.4ms)
+  Rendered instruments/edit.html.erb within layouts/application (12.9ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 46ms (Views: 40.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/instruments/6/edit" for 127.0.0.1 at 2019-12-05 12:28:01 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (8.9ms)
+  Rendered instruments/edit.html.erb within layouts/application (10.3ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 40ms (Views: 34.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:28:04 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (1.7ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (34.6ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 70ms (Views: 64.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:28:08 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.4ms)
+  Rendered instruments/new.html.erb within layouts/application (12.6ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 50ms (Views: 44.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:29:21 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (1.0ms)
+  Rendered instruments/new.html.erb within layouts/application (2.2ms)
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.7ms)
+
+
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting ')'
+...lass: 'button is-warning' value: 'safdsfsdfdsa');@output_buf...
+...                          ^~~~~:
+  app/views/instruments/_form.html.erb:63:in `'
+  app/views/instruments/new.html.erb:14:in `_app_views_instruments_new_html_erb___1367959008580510549_70156931793620'
+
+Started POST "/__better_errors/28dee7126288d128/variables" for 127.0.0.1 at 2019-12-05 12:29:22 +0300
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:29:37 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (6.5ms)
+  Rendered instruments/new.html.erb within layouts/application (7.9ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:30:05 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (5.7ms)
+  Rendered instruments/new.html.erb within layouts/application (6.7ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 49ms (Views: 42.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:30:08 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (19.0ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 46ms (Views: 41.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/instruments/6/edit" for 127.0.0.1 at 2019-12-05 12:30:10 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (14.3ms)
+  Rendered instruments/edit.html.erb within layouts/application (15.5ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 55ms (Views: 49.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:31:14 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (23.6ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 89ms (Views: 83.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:31:25 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (18.2ms)
+  Rendered instruments/new.html.erb within layouts/application (19.4ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 76ms (Views: 70.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:32:38 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.8ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (27.8ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 89ms (Views: 83.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/instruments/6/edit" for 127.0.0.1 at 2019-12-05 12:32:43 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.1ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (12.0ms)
+  Rendered instruments/edit.html.erb within layouts/application (13.4ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 83ms (Views: 35.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:32:48 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (18.9ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 62ms (Views: 55.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:34:22 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.5ms)
+  Rendered instruments/new.html.erb within layouts/application (12.7ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 50ms (Views: 45.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:36:11 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (7.3ms)
+  Rendered instruments/new.html.erb within layouts/application (8.6ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 36ms (Views: 31.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:37:44 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (8.0ms)
+  Rendered instruments/new.html.erb within layouts/application (8.7ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/instruments" for 127.0.0.1 at 2019-12-05 12:38:08 +0300
+Processing by InstrumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zdwPgNDC1aSOZrxxjVgKdA7Li1boBFHC08el8qOfuyapJ6pO8XVUZnje6OsotTLMv24j0kKAo3ju7Hr3XxjEvg==", "instrument"=>{"title"=>"bags", "price"=>"123", "description"=>"fadsfsa sadfsfsa", "condition"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x000055ce26444b58 @tempfile=#<Tempfile:/tmp/RackMultipart20191205-10401-1m1gvnu.jpeg>, @original_filename="bag.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"bag.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Instrument"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "instruments" ("description", "condition", "title", "price", "created_at", "updated_at", "image", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["description", "fadsfsa sadfsfsa"], ["condition", ""], ["title", "bags"], ["price", "123.0"], ["created_at", "2019-12-05 09:38:08.702405"], ["updated_at", "2019-12-05 09:38:08.702405"], ["image", "\"bag.jpeg\""], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments/7
+Completed 302 Found in 100ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/instruments/7" for 127.0.0.1 at 2019-12-05 12:38:08 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (4.6ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 31ms (Views: 26.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/instruments/7/edit" for 127.0.0.1 at 2019-12-05 12:38:18 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (10.5ms)
+  Rendered instruments/edit.html.erb within layouts/application (12.1ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 44ms (Views: 39.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/instruments/7/edit" for 127.0.0.1 at 2019-12-05 12:39:35 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (0.9ms)
+  Rendered instruments/edit.html.erb within layouts/application (1.8ms)
+Completed 401 Unauthorized in 9ms (ActiveRecord: 1.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ')', expecting =>
+...button is-warning', 'asdffsf' );@output_buffer.safe_append='
+...                              ^
+/home/walimike/projects/ruby/moveit/app/views/instruments/_form.html.erb:68: syntax error, unexpected end, expecting ')'
+'.freeze;       end 
+                ^~~
+/home/walimike/projects/ruby/moveit/app/views/instruments/_form.html.erb:73: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/walimike/projects/ruby/moveit/app/views/instruments/_form.html.erb:75: syntax error, unexpected end, expecting ')'
+          end
+          ^~~:
+  app/views/instruments/_form.html.erb:63:in `'
+  app/views/instruments/edit.html.erb:14:in `_app_views_instruments_edit_html_erb__325030370596742996_70156932178380'
+
+Started POST "/__better_errors/eab301552f5443a1/variables" for 127.0.0.1 at 2019-12-05 12:39:35 +0300
+Started GET "/instruments/7/edit" for 127.0.0.1 at 2019-12-05 12:41:11 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (0.9ms)
+  Rendered instruments/edit.html.erb within layouts/application (2.2ms)
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.8ms)
+
+
+
+SyntaxError - syntax error, unexpected class, expecting ')'
+...:submit, value: 'asdffsf' class: 'button is-warning' );@outp...
+...                          ^~~~~:
+  app/views/instruments/_form.html.erb:63:in `'
+  app/views/instruments/edit.html.erb:14:in `_app_views_instruments_edit_html_erb__325030370596742996_70156849717080'
+
+Started POST "/__better_errors/9c449e0c840583ba/variables" for 127.0.0.1 at 2019-12-05 12:41:11 +0300
+Started GET "/instruments/7/edit" for 127.0.0.1 at 2019-12-05 12:41:20 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (1.5ms)
+  Rendered instruments/edit.html.erb within layouts/application (3.4ms)
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.9ms)
+
+
+
+SyntaxError - syntax error, unexpected class, expecting ')'
+...:submit, value: 'asdffsf' class: 'button is-warning' );@outp...
+...                          ^~~~~:
+  app/views/instruments/_form.html.erb:63:in `'
+  app/views/instruments/edit.html.erb:14:in `_app_views_instruments_edit_html_erb__325030370596742996_70156921399620'
+
+Started POST "/__better_errors/432b23d69716e345/variables" for 127.0.0.1 at 2019-12-05 12:41:20 +0300
+Started GET "/instruments/7/edit" for 127.0.0.1 at 2019-12-05 12:41:39 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.1ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (5.2ms)
+  Rendered instruments/edit.html.erb within layouts/application (6.1ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/instruments/7" for 127.0.0.1 at 2019-12-05 12:41:48 +0300
+Processing by InstrumentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dzwfY3lL8gAsmnoHvUjlZ0LGtZHrSvPOsJSHoI7RPa4Tx7qtWPxzwtoiLp0Ypd3f82MdFUHOAXSNv1ilclZCNg==", "instrument"=>{"title"=>"bags", "price"=>"123.0", "description"=>"fadsfsa sadfsfsa", "condition"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9d5e2a84f8 @tempfile=#<Tempfile:/tmp/RackMultipart20191205-10401-g4nzoa.jpeg>, @original_filename="bag.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"bag.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"asdffsf", "id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "instruments" SET "image" = $1, "updated_at" = $2 WHERE "instruments"."id" = $3[0m  [["image", "\"bag.jpeg\""], ["updated_at", "2019-12-05 09:41:48.344371"], ["id", 7]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments/7
+Completed 302 Found in 73ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/instruments/7" for 127.0.0.1 at 2019-12-05 12:41:48 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (8.0ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 48ms (Views: 44.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:41:52 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (26.2ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 70ms (Views: 66.6ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/instruments/6" for 127.0.0.1 at 2019-12-05 12:42:10 +0300
+Processing by InstrumentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vVgilyb7u1CRGzrOtbYcnQ4MtOccNVJ3zVahSFXPwi3Zo4dZB0w6kmejblQQWyQlv6kcY7axoM3wfX5NqUi9tQ==", "id"=>"6"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (1.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 401 Unauthorized in 51ms (ActiveRecord: 2.0ms)
+
+
+
+NoMethodError - undefined method `not_referenced_by_any_line_item' for #<Instrument:0x00007f9d58112f40>
+Did you mean?  not_refereced_by_any_line_item:
+  app/controllers/instruments_controller.rb:58:in `destroy'
+
+Started POST "/__better_errors/ce3d862970334ebb/variables" for 127.0.0.1 at 2019-12-05 12:42:10 +0300
+Started DELETE "/instruments/6" for 127.0.0.1 at 2019-12-05 12:46:48 +0300
+Processing by InstrumentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vVgilyb7u1CRGzrOtbYcnQ4MtOccNVJ3zVahSFXPwi3Zo4dZB0w6kmejblQQWyQlv6kcY7axoM3wfX5NqUi9tQ==", "id"=>"6"}
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments
+Completed 302 Found in 66ms (ActiveRecord: 16.3ms)
+
+
+Started GET "/instruments" for 127.0.0.1 at 2019-12-05 12:46:48 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (21.4ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 52ms (Views: 47.4ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/instruments/7" for 127.0.0.1 at 2019-12-05 12:46:54 +0300
+Processing by InstrumentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CfgLnhF0zwKv6Odryq2rqZ2apLF0ohQjjHqjRdrt58ZtA65QMMNOwFlQs/FvQJMRLD8MNd4m5pmxUXxAJmqYXg==", "id"=>"7"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 7]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments
+Completed 302 Found in 15ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/instruments" for 127.0.0.1 at 2019-12-05 12:46:54 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (1.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (16.2ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 44ms (Views: 38.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:46:58 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (12.3ms)
+  Rendered instruments/new.html.erb within layouts/application (13.3ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 53ms (Views: 46.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:47:39 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (8.3ms)
+  Rendered instruments/new.html.erb within layouts/application (9.2ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/instruments" for 127.0.0.1 at 2019-12-05 12:47:50 +0300
+Processing by InstrumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wesgdws0xRuCh/aAiNEcrlY9G6lEz9HqD747cmOWRX2lEIW5KoNE2XQ/ohotPCQW55izLe5LI1AyleR3nxE65Q==", "instrument"=>{"title"=>"rqwer", "price"=>"3242", "description"=>"wqrewqr werewqrqew", "condition"=>""}, "commit"=>"asdffsf"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "instruments" ("description", "condition", "title", "price", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "wqrewqr werewqrqew"], ["condition", ""], ["title", "rqwer"], ["price", "3242.0"], ["created_at", "2019-12-05 09:47:50.878367"], ["updated_at", "2019-12-05 09:47:50.878367"], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments/8
+Completed 302 Found in 13ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/instruments/8" for 127.0.0.1 at 2019-12-05 12:47:50 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  Rendered instruments/show.html.erb within layouts/application (2.6ms)
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.5ms)
+
+
+
+ArgumentError - nil is not a valid asset source:
+  app/views/instruments/show.html.erb:16:in `_app_views_instruments_show_html_erb___2792034926462727421_70156930220060'
+
+Started POST "/__better_errors/19d5e159df70aa61/variables" for 127.0.0.1 at 2019-12-05 12:47:51 +0300
+Started POST "/instruments" for 127.0.0.1 at 2019-12-05 12:48:06 +0300
+Processing by InstrumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wesgdws0xRuCh/aAiNEcrlY9G6lEz9HqD747cmOWRX2lEIW5KoNE2XQ/ohotPCQW55izLe5LI1AyleR3nxE65Q==", "instrument"=>{"title"=>"rqwer", "price"=>"3242", "description"=>"wqrewqr werewqrqew", "condition"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9d54061fa0 @tempfile=#<Tempfile:/tmp/RackMultipart20191205-10401-5fvew6.jpeg>, @original_filename="bag.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"bag.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"asdffsf"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "instruments" ("description", "condition", "title", "price", "created_at", "updated_at", "image", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["description", "wqrewqr werewqrqew"], ["condition", ""], ["title", "rqwer"], ["price", "3242.0"], ["created_at", "2019-12-05 09:48:06.749157"], ["updated_at", "2019-12-05 09:48:06.749157"], ["image", "\"bag.jpeg\""], ["user_id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments/9
+Completed 302 Found in 86ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/instruments/9" for 127.0.0.1 at 2019-12-05 12:48:06 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (4.0ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 27ms (Views: 22.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:48:10 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (10.4ms)
+Completed 401 Unauthorized in 15ms (ActiveRecord: 3.6ms)
+
+
+
+ArgumentError - nil is not a valid asset source:
+  app/views/instruments/index.html.erb:18:in `block in _app_views_instruments_index_html_erb___1842747338416181728_70156881593200'
+  app/views/instruments/index.html.erb:14:in `_app_views_instruments_index_html_erb___1842747338416181728_70156881593200'
+
+Started POST "/__better_errors/0edc1989030eac02/variables" for 127.0.0.1 at 2019-12-05 12:48:10 +0300
+Started GET "/instruments/9" for 127.0.0.1 at 2019-12-05 12:48:19 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (4.8ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 52ms (Views: 48.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:48:22 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (7.0ms)
+Completed 401 Unauthorized in 10ms (ActiveRecord: 1.3ms)
+
+
+
+ArgumentError - nil is not a valid asset source:
+  app/views/instruments/index.html.erb:18:in `block in _app_views_instruments_index_html_erb___1842747338416181728_70156927993480'
+  app/views/instruments/index.html.erb:14:in `_app_views_instruments_index_html_erb___1842747338416181728_70156927993480'
+
+Started POST "/__better_errors/b246eea317c3411e/variables" for 127.0.0.1 at 2019-12-05 12:48:22 +0300
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" ORDER BY "instruments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" ORDER BY "instruments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 9]]
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:50:22 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  Rendered instruments/index.html.erb within layouts/application (3.2ms)
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.8ms)
+
+
+
+ArgumentError - nil is not a valid asset source:
+  app/views/instruments/index.html.erb:18:in `block in _app_views_instruments_index_html_erb___1842747338416181728_70156881596560'
+  app/views/instruments/index.html.erb:14:in `_app_views_instruments_index_html_erb___1842747338416181728_70156881596560'
+
+Started POST "/__better_errors/8667051d713f88f2/variables" for 127.0.0.1 at 2019-12-05 12:50:22 +0300
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" ORDER BY "instruments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 8]]
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:50:37 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (18.7ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 71ms (Views: 66.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:50:46 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (23.9ms)
+  Rendered instruments/new.html.erb within layouts/application (25.4ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 71ms (Views: 64.5ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mInstrument Load (0.9ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:51:53 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (16.8ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 116ms (Views: 48.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:51:55 +0300
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.8ms)
+  Rendered instruments/new.html.erb within layouts/application (13.1ms)
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 51ms (Views: 45.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/instruments/new" for 127.0.0.1 at 2019-12-05 12:52:10 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InstrumentsController#new as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (35.4ms)
+  Rendered instruments/new.html.erb within layouts/application (36.4ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 381ms (Views: 293.8ms | ActiveRecord: 15.5ms)
+
+
+Started POST "/instruments" for 127.0.0.1 at 2019-12-05 12:52:28 +0300
+Processing by InstrumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TpvcRRAAVqwnTjVDtKPN+jKGfYTo5qGir1b8piNHkq8qYHmLMbfXbtH2YdkRTvVCgyPVAEJiUxiSfSOj38DtNw==", "instrument"=>{"title"=>"bags", "price"=>"42543", "description"=>"fdsfdsa sadfdsaf", "condition"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f257c4fa238 @tempfile=#<Tempfile:/tmp/RackMultipart20191205-12839-1y7dzu1.jpeg>, @original_filename="clothes.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"instrument[image]\"; filename=\"clothes.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"asdffsf"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "instruments" ("description", "condition", "title", "price", "created_at", "updated_at", "image", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["description", "fdsfdsa sadfdsaf"], ["condition", ""], ["title", "bags"], ["price", "42543.0"], ["created_at", "2019-12-05 09:52:28.168689"], ["updated_at", "2019-12-05 09:52:28.168689"], ["image", "\"clothes.jpeg\""], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments/10
+Completed 302 Found in 139ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/instruments/10" for 127.0.0.1 at 2019-12-05 12:52:28 +0300
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered instruments/show.html.erb within layouts/application (8.1ms)
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 40ms (Views: 34.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:52:31 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (18.1ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 51ms (Views: 46.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/instruments/10/edit" for 127.0.0.1 at 2019-12-05 12:52:35 +0300
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/_form.html.erb (11.3ms)
+  Rendered instruments/edit.html.erb within layouts/application (12.5ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 68ms (Views: 63.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 12:52:51 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (18.2ms)
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 58ms (Views: 51.3ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/instruments/10" for 127.0.0.1 at 2019-12-05 12:52:55 +0300
+Processing by InstrumentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BtGlCZPH95oz5T6Q6OobdM5exZ2oc8qnH5oZU+QauQBiKgDHsnB2WMVdagpNByPMf/ttGQL3OB0iscZWGJ3GmA==", "id"=>"10"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT  "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 10]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/instruments
+Completed 302 Found in 16ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/instruments" for 127.0.0.1 at 2019-12-05 12:52:55 +0300
+Processing by InstrumentsController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering instruments/index.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY created_at desc[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered instruments/index.html.erb within layouts/application (12.9ms)
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 2]]
+Completed 200 OK in 48ms (Views: 43.7ms | ActiveRecord: 1.9ms)
 
 
